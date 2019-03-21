@@ -7,19 +7,24 @@ public class MyDeque<E>{
     size = 10;
     start = 0;
     end = 9;
-    data = new E[10];
+    data = (E[])new Object[10];
   }
   public MyDeque(int initialCapacity){
     size = initialCapacity;
     start = 0;
     end = initialCapacity-1;
-    data = new E[initialCapacity];
+    data = (E[])new Object[initialCapacity];
   }
   public int size(){
-
+    return size;
   }
   public String toString(){
-
+    String ans = "";
+    for (int i = 0; i < size - 1; i++){
+      ans += data[i] + ", ";
+    }
+    ans += data[size-1];
+    return ans;
   }
   public void addFirst(E element){
 
