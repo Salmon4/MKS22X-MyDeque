@@ -20,10 +20,10 @@ public class MyDeque<E>{
   }
   public String toString(){
     String ans = "";
-    for (int i = 0; i < size - 1; i++){
-      ans += data[i] + ", ";
+    for (int i = start; i < end + 1; i++){
+      ans += data[i] + " ";
     }
-    ans += data[size-1];
+    //ans += data[size-1];
     return ans;
   }
   public void addFirst(E element){
@@ -32,16 +32,16 @@ public class MyDeque<E>{
   public void addLast(E element){
 
   }
-  public E removeFirst(E element){
+  public E removeFirst(){
 
   }
-  public E removeLast(E element){
+  public E removeLast(){
 
   }
-  public E getFirst(E element){
+  public E getFirst(){
 
   }
-  public E getLast(E element){
+  public E getLast(){
 
   }
 }
