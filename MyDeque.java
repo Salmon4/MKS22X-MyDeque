@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 public class MyDeque<E>{
   private E[] data;
   private int size, start, end;
@@ -9,6 +10,7 @@ public class MyDeque<E>{
     end = 9;
     data = (E[])new Object[10];
   }
+  @SuppressWarnings("unchecked")
   public MyDeque(int initialCapacity){
     size = 0;
     start = 0;
@@ -71,7 +73,7 @@ public class MyDeque<E>{
     return data[start];
   }
   public E getLast(){
-    if (data]start == null){
+    if (data[start] == null){
       throw new NoSuchElementException("boo");
     }
     return data[end];
