@@ -33,7 +33,7 @@ public class MyDeque<E>{
     ans += "{";
     System.out.println(start + " " + end);
     if (start < end){
-      for (int i = start; i <= end; i++){
+      for (int i = start; i < end; i++){
         ans += data[i] + " ";
       }
     }
@@ -106,12 +106,23 @@ public class MyDeque<E>{
 
 
   public E removeFirst(){
-    if (data[start] == null){
+    //if (data[start] == null){
+    //  throw new NoSuchElementException("boo");
+    //}
+
+    if (size == 0){
       throw new NoSuchElementException("boo");
     }
     E ans = data[start];
-    data[start] = null;
-    start++;
+    if (start < data.length - 1){
+      data[start] = null;
+      start++;
+      size--;
+    }
+    else{
+      data[start] = null;
+      start = 0;
+    }
     return ans;
   }
   public E removeLast(){
@@ -171,52 +182,74 @@ public class MyDeque<E>{
 
     System.out.println(data.toString());
     data.addLast(10);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(9);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(8);
-    System.out.println(data.toString());
+  //  System.out.println(data.toString());
     data.addLast(7);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(6);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(5);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(4);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(3);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(2);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(1);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addLast(0);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
 
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(10);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(9);
-    System.out.println(data.toString());
+  //  System.out.println(data.toString());
     data.addFirst(8);
     System.out.println(data.toString());
     data.addFirst(7);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(6);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(5);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(4);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(3);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(2);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(1);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     data.addFirst(0);
-    System.out.println(data.toString());
+    //System.out.println(data.toString());
     //System.out.println(data.size());
+    data.removeFirst();
+    //System.out.println(data.toString());
+    data.removeFirst();
+    //System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
 
   }
 }
