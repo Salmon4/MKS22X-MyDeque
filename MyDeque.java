@@ -64,8 +64,12 @@ public class MyDeque<E>{
     if (size == data.length){
       resize();
     }
+
     if (start <= 0){
       start = data.length;
+    }
+    if (end == 0 && start == 0){
+      start--;
     }
     //if (start - 1 >= 0){
   //  if (data[start] != null){
@@ -81,11 +85,23 @@ public class MyDeque<E>{
     if (element == null){
       throw new NullPointerException("boo");
     }
-    if (end + 1 < data.length){
+    if (size == data.length){
+      resize();
+    }
+
+  if (data[end] == null){
+    size++;
+    data[end] = element;
+  }
+  else{
+    //if (end >= data.length){
+    //  end = 0;
+  //  }
+
       end++;
       size++;
       data[end] = element;
-    }
+}
   }
 
 
@@ -140,7 +156,7 @@ public class MyDeque<E>{
         newData[index] = data[i];
         index++;
       }
-      for (int k = 0; k > 0; k--){
+      for (int k = 0; k <= end2; k++){
         newData[index] = data[k];
         index++;
       }
@@ -152,6 +168,31 @@ public class MyDeque<E>{
   @SuppressWarnings("unchecked")
   public static void main(String args[]){
     MyDeque data = new MyDeque();
+
+    System.out.println(data.toString());
+    data.addLast(10);
+    System.out.println(data.toString());
+    data.addLast(9);
+    System.out.println(data.toString());
+    data.addLast(8);
+    System.out.println(data.toString());
+    data.addLast(7);
+    System.out.println(data.toString());
+    data.addLast(6);
+    System.out.println(data.toString());
+    data.addLast(5);
+    System.out.println(data.toString());
+    data.addLast(4);
+    System.out.println(data.toString());
+    data.addLast(3);
+    System.out.println(data.toString());
+    data.addLast(2);
+    System.out.println(data.toString());
+    data.addLast(1);
+    System.out.println(data.toString());
+    data.addLast(0);
+    System.out.println(data.toString());
+
     System.out.println(data.toString());
     data.addFirst(10);
     System.out.println(data.toString());
@@ -175,6 +216,7 @@ public class MyDeque<E>{
     System.out.println(data.toString());
     data.addFirst(0);
     System.out.println(data.toString());
-    System.out.println(data.size());
+    //System.out.println(data.size());
+
   }
 }
