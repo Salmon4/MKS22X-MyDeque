@@ -30,20 +30,35 @@ public class MyDeque<E>{
   }
   public String toString(){
     String ans = "";
+    if (size == 0){
+      return "{}";
+    }
+    if (size == 1){
+      ans += "{";
+      ans += data[0];
+      ans += "}";
+      return ans;
+    }
     ans += "{";
-    System.out.println(start + " " + end);
+    System.out.println(start + " " + end + "  " + size);
     if (start < end){
-      for (int i = start; i < end; i++){
+      for (int i = start; i <= end; i++){
+        if (data[i] != null){
         ans += data[i] + " ";
+      }
       }
     }
     else{
       for (int i = start; i < data.length; i++){
         //System.out.println(data[i]);
+        if (data[i] != null){
         ans += data[i] + " ";
       }
-      for (int k = 0; k < end; k++){
+      }
+      for (int k = 0; k <= end; k++){
+        if (data[k] != null){
         ans += data[k] + " ";
+      }
       }
     }
 
@@ -52,9 +67,6 @@ public class MyDeque<E>{
     //}
     //ans += data[size-1];
     ans += "}";
-    if (size == 0){
-      return "{}";
-    }
     return ans;
   }
   public void addFirst(E element){
@@ -121,6 +133,7 @@ public class MyDeque<E>{
     }
     else{
       data[start] = null;
+      size--;
       start = 0;
     }
     return ans;
@@ -182,56 +195,56 @@ public class MyDeque<E>{
 
     System.out.println(data.toString());
     data.addLast(10);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(9);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(8);
-  //  System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(7);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(6);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(5);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(4);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(3);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(2);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(1);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addLast(0);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
 
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(10);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(9);
-  //  System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(8);
     System.out.println(data.toString());
     data.addFirst(7);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(6);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(5);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(4);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(3);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(2);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(1);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.addFirst(0);
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     //System.out.println(data.size());
     data.removeFirst();
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.removeFirst();
-    //System.out.println(data.toString());
+    System.out.println(data.toString());
     data.removeFirst();
     System.out.println(data.toString());
     data.removeFirst();
