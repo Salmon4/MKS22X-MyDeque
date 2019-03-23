@@ -31,8 +31,9 @@ public class MyDeque<E>{
   public String toString(){
     String ans = "";
     ans += "{";
-    if (start <= end){
-      for (int i = start; i < end + 1; i++){
+    System.out.println(start + " " + end);
+    if (start < end){
+      for (int i = start; i <= end; i++){
         ans += data[i] + " ";
       }
     }
@@ -41,12 +42,19 @@ public class MyDeque<E>{
         //System.out.println(data[i]);
         ans += data[i] + " ";
       }
-      for (int k = end; k > 0; k--){
+      for (int k = 0; k < end; k++){
         ans += data[k] + " ";
       }
     }
+
+    //for (int i = 0; i < size; i++){
+
+    //}
     //ans += data[size-1];
     ans += "}";
+    if (size == 0){
+      return "{}";
+    }
     return ans;
   }
   public void addFirst(E element){
@@ -66,6 +74,7 @@ public class MyDeque<E>{
       start--;
       size++;
       data[start] = element;
+      //System.out.println(data.toString());
     //}
   }
   public void addLast(E element){
@@ -117,24 +126,47 @@ public class MyDeque<E>{
     int newSize = data.length * 2 + 1;
     @SuppressWarnings("unchecked")
     E[] newData = (E[])new Object[newSize];
-    for (int i = 0; i < size; i++){
-      newData[i] = data[i];
+    if (start < end){
+      for (int i = 0; i < size; i++){
+        newData[i] = data[i];
+      }
     }
-    data = newData;
+    else{
+      for (int i = start; i < data.length; i++){
+        newData[i] = data[i];
+      }
+      for (int k = end; k > 0; k--){
+        newData[k] = data[k];
+      }
+    }
+      //data = newData;
   }
   @SuppressWarnings("unchecked")
   public static void main(String args[]){
     MyDeque data = new MyDeque();
+    System.out.println(data.toString());
     data.addFirst(10);
+    System.out.println(data.toString());
     data.addFirst(9);
+    System.out.println(data.toString());
     data.addFirst(8);
+    System.out.println(data.toString());
     data.addFirst(7);
+    System.out.println(data.toString());
     data.addFirst(6);
+    System.out.println(data.toString());
     data.addFirst(5);
+    System.out.println(data.toString());
     data.addFirst(4);
+    System.out.println(data.toString());
     data.addFirst(3);
+    System.out.println(data.toString());
     data.addFirst(2);
+    System.out.println(data.toString());
     data.addFirst(1);
     System.out.println(data.toString());
+    data.addFirst(0);
+    System.out.println(data.toString());
+    System.out.println(data.size());
   }
 }
