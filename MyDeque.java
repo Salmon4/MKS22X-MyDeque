@@ -35,12 +35,12 @@ public class MyDeque<E>{
     }
     if (size == 1){
       ans += "{";
-      ans += data[0];
+      ans += data[start];
       ans += "}";
       return ans;
     }
     ans += "{";
-    System.out.println(start + " " + end + "  " + size);
+    //System.out.println(start + " " + end + "  " + size);
     if (start < end){
       for (int i = start; i <= end; i++){
         if (data[i] != null){
@@ -143,8 +143,16 @@ public class MyDeque<E>{
       throw new NoSuchElementException("boo");
     }
     E ans = data[end];
-    data[end] = null;
-    end--;
+    if (end == 0){
+      data[end] = null;
+      end = size - 1;
+      size--;
+    }
+    else{
+      data[end] = null;
+      size--;
+      end--;
+    }
     return ans;
   }
   public E getFirst(){
@@ -185,7 +193,7 @@ public class MyDeque<E>{
         index++;
       }
       start = -1;
-      end = size;
+      end = size-1;
     }
       data = newData;
   }
@@ -262,6 +270,30 @@ public class MyDeque<E>{
     data.removeFirst();
     System.out.println(data.toString());
     data.removeFirst();
+    System.out.println(data.toString());
+
+    data.removeLast();
+    System.out.println(data.toString());
+
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
     System.out.println(data.toString());
 
   }
