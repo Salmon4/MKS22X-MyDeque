@@ -30,10 +30,23 @@ public class MyDeque<E>{
   }
   public String toString(){
     String ans = "";
-    for (int i = start; i < end + 1; i++){
-      ans += data[i] + " ";
+    ans += "{";
+    if (start <= end){
+      for (int i = start; i < end + 1; i++){
+        ans += data[i] + " ";
+      }
+    }
+    else{
+      for (int i = start; i < data.length; i++){
+        //System.out.println(data[i]);
+        ans += data[i] + " ";
+      }
+      for (int k = end; k > 0; k--){
+        ans += data[k] + " ";
+      }
     }
     //ans += data[size-1];
+    ans += "}";
     return ans;
   }
   public void addFirst(E element){
@@ -43,10 +56,13 @@ public class MyDeque<E>{
     if (size == data.length){
       resize();
     }
-    if (start < 0){
-      start = data.length - 1;
+    if (start <= 0){
+      start = data.length;
     }
     //if (start - 1 >= 0){
+  //  if (data[start] != null){
+  //    start--;
+    //}
       start--;
       size++;
       data[start] = element;
@@ -110,5 +126,15 @@ public class MyDeque<E>{
   public static void main(String args[]){
     MyDeque data = new MyDeque();
     data.addFirst(10);
+    data.addFirst(9);
+    data.addFirst(8);
+    data.addFirst(7);
+    data.addFirst(6);
+    data.addFirst(5);
+    data.addFirst(4);
+    data.addFirst(3);
+    data.addFirst(2);
+    data.addFirst(1);
+    System.out.println(data.toString());
   }
 }
