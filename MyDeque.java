@@ -126,20 +126,28 @@ public class MyDeque<E>{
     int newSize = data.length * 2 + 1;
     @SuppressWarnings("unchecked")
     E[] newData = (E[])new Object[newSize];
-    if (start < end){
-      for (int i = 0; i < size; i++){
-        newData[i] = data[i];
+    int index = 0;
+    int start2 = start;
+    int end2 = end;
+    if (start2 < end2){
+      for (int i = start2; i <= end2; i++){
+        newData[index] = data[i];
+        index++;
       }
     }
     else{
-      for (int i = start; i < data.length; i++){
-        newData[i] = data[i];
+      for (int i = start2; i < data.length; i++){
+        newData[index] = data[i];
+        index++;
       }
-      for (int k = end; k > 0; k--){
-        newData[k] = data[k];
+      for (int k = 0; k > 0; k--){
+        newData[index] = data[k];
+        index++;
       }
+      start = -1;
+      end = size;
     }
-      //data = newData;
+      data = newData;
   }
   @SuppressWarnings("unchecked")
   public static void main(String args[]){
