@@ -12,7 +12,7 @@ public class Calculator{
   //MyDeque<Double> opera = new MyDeque();
 
   for (int i = 0; i < stack.length; i++){
-    //System.out.println(numb.toString());
+    System.out.println(numb.toString());
     if (stack[i].equals("+")){
       numb.addLast(numb.removeLast() + numb.removeLast());
     }
@@ -32,7 +32,9 @@ public class Calculator{
           }
           else{
             if (stack[i].equals("%")){
-              numb.addLast(numb.removeLast() % numb.removeLast());
+              double r1 = numb.removeLast();
+              double r2 = numb.removeLast();
+              numb.addLast(r2 % r1);
             }
             else{
               numb.addLast(Double.parseDouble(stack[i]));
@@ -42,6 +44,7 @@ public class Calculator{
       }
     }
   }
+  System.out.println(numb.toString());
   return numb.getFirst();
  }
 
