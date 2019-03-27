@@ -12,27 +12,28 @@ public class Calculator{
   //MyDeque<Double> opera = new MyDeque();
 
   for (int i = 0; i < stack.length; i++){
-    if (stack[i] == "+"){
+    //System.out.println(numb.toString());
+    if (stack[i].equals("+")){
       numb.addLast(numb.removeLast() + numb.removeLast());
     }
     else{
-      if (stack[i] == "-"){
-        numb.addLast(numb.removeLast() - numb.removeLast());
+      if (stack[i].equals("-")){
+        numb.addLast(numb.removeLast()*-1 + numb.removeLast());
       }
       else{
-        if (stack[i] == "*"){
+        if (stack[i].equals("*")){
           numb.addLast(numb.removeLast() * numb.removeLast());
         }
         else{
-          if (stack[i] == "/"){
+          if (stack[i].equals("/")){
             numb.addLast(numb.removeLast() / numb.removeLast());
           }
           else{
-            if (stack[i] == "%"){
+            if (stack[i].equals("%")){
               numb.addLast(numb.removeLast() % numb.removeLast());
             }
             else{
-              numb.addLast((double)stack[i]);
+              numb.addLast(Double.parseDouble(stack[i]));
             }
           }
         }
@@ -43,6 +44,9 @@ public class Calculator{
  }
 
  public static void main(String args[]){
-   System.out.println(eval("w o r k s"));
+   System.out.println(eval("10 2.0 +"));
+   System.out.println(eval("11 3 - 4 + 2.5 *"));
+   System.out.println(eval("8 2 + 99 9 - * 2 + 9 -"));
+   System.out.println(eval("1 2 3 4 5 + * - -"));
  }
 }
