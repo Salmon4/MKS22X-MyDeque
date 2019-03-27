@@ -26,7 +26,9 @@ public class Calculator{
         }
         else{
           if (stack[i].equals("/")){
-            numb.addLast(numb.removeLast() / numb.removeLast());
+            double d1 = numb.removeLast();
+            double d2 = numb.removeLast();
+            numb.addLast(d2 / d1);
           }
           else{
             if (stack[i].equals("%")){
