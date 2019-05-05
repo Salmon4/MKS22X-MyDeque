@@ -125,6 +125,9 @@ public class MyDeque<E>{
     if (size == 0){
       throw new NoSuchElementException("boo");
     }
+    if (data[start] == null){
+      throw new NullPointerException("boo");
+    }
     E ans = data[start];
     if (start < data.length - 1){
       data[start] = null;
@@ -142,6 +145,9 @@ public class MyDeque<E>{
     if (size == 0){
       throw new NoSuchElementException("boo");
     }
+    if (data[end] == null){
+      throw new NullPointerException("boo");
+    }
     E ans = data[end];
     if (end == 0){
       data[end] = null;
@@ -156,15 +162,17 @@ public class MyDeque<E>{
     return ans;
   }
   public E getFirst(){
-    if (data[start] == null){
+    if (size == 0){
       throw new NoSuchElementException("boo");
     }
+
     return data[start];
   }
   public E getLast(){
-    if (data[start] == null){
+    if (size == 0){
       throw new NoSuchElementException("boo");
     }
+
     return data[end];
   }
 
@@ -199,7 +207,28 @@ public class MyDeque<E>{
   }
   @SuppressWarnings("unchecked")
   public static void main(String args[]){
-    MyDeque data = new MyDeque();
+    MyDeque<Integer> data = new MyDeque<>();
+    System.out.println(data.size());
+    System.out.println(data.toString());
+    data.addFirst(0);
+    System.out.println(data.toString());
+    data.addLast(1);
+    System.out.println(data.toString());
+    data.addFirst(-1);
+    System.out.println(data.getFirst());
+    System.out.println(data.toString());
+    data.addLast(2);
+    System.out.println(data.getLast());
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeLast();
+    System.out.println(data.toString());
+    data.removeFirst();
+    System.out.println(data.toString());
+    /**
     data.addFirst(0);
     System.out.println(data.toString());
     data.removeFirst();
@@ -216,6 +245,7 @@ public class MyDeque<E>{
     System.out.println(data.toString());
     data.removeFirst();
     System.out.println(data.toString());
+    **/
     /**
     System.out.println(data.toString());
     data.addLast(10);
